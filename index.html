@@ -213,8 +213,9 @@
 
             
               contrato = (filtro.ativo == 1) ? 
-              (filtro.inicial - (filtro.inicial % (300*filtro.quebra)))/(300*filtro.quebra) : 
-              (filtro.inicial - (filtro.inicial % (7500*filtro.quebra)))/((7500*filtro.quebra)*5)
+              (filtro.inicial - (filtro.inicial % (300*filtro.quebra))) / (300*filtro.quebra) : 
+
+              ((filtro.inicial - (filtro.inicial % (7500*filtro.quebra))) / (7500*filtro.quebra))*5
             
               console.log("sobra da divisão:")
               console.log("contrato cheio:")
