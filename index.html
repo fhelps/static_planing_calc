@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name=viewport content="width=device-width, initial-scale=1">
+
+  
+  <title>Calculadora</title>
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  
+  
+  <link rel="stylesheet" href="./app.css">
+  
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+  <link href="https://unpkg.com/bootstrap-table@1.18.0/dist/bootstrap-table.min.css" rel="stylesheet">
+
+  <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
+  <script src="https://unpkg.com/tableexport.jquery.plugin/libs/jsPDF/jspdf.min.js"></script>
+  <script src="https://unpkg.com/tableexport.jquery.plugin/libs/jsPDF-AutoTable/jspdf.plugin.autotable.js"></script>
+ 
+  
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.0/dist/bootstrap-table.min.css">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://unpkg.com/bootstrap-table@1.18.0/dist/bootstrap-table.min.js"></script>
+  <script src="https://unpkg.com/bootstrap-table@1.18.0/dist/extensions/export/bootstrap-table-export.min.js"></script>
+
+  <!-- Latest compiled and minified Locales -->
+  <script src="https://unpkg.com/bootstrap-table@1.18.0/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+ 
+</head>
+<body class="bg-gray-50">
+<div class="relative overflow-hidden">
+  
+ <div class="hidden sm:block sm:absolute sm:inset-y-0 sm:h-full sm:w-full">
+    <div class="relative h-full max-w-screen-xl mx-auto text-">
+      <svg class="absolute transform left-full -translate-y-3/4 -translate-x-1/4 md:-translate-y-1/2 lg:-translate-x-1/2" width="404" height="784" fill="none" viewBox="0 0 404 784">
+        <defs>
+          <pattern id="5d0dd344-b041-4d26-bec4-8d33ea57ec9b" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+          </pattern>
+        </defs>
+        <rect width="404" height="784" fill="url(#5d0dd344-b041-4d26-bec4-8d33ea57ec9b)" />
+      </svg>
+    </div>
+  </div> 
+
+  <div class="relative pt-6 pb-12 sm:pb-16 md:pb-20">
+    <div class="max-w-screen-xl px-4 mx-auto sm:px-6">
+      <nav class="relative flex items-center justify-between sm:h-10 md:justify-center">
+        <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
+          <div class="flex items-center justify-between w-full md:w-auto">
+            
+            <a href="/">
+              <img src=./images/logo.png>
+            </a>
+            
+            <div class="flex items-center -mr-2 md:hidden">
+              <button type="button" class="inline-flex items-center justify-center p-2 text-gray-400 transition duration-150 ease-in-out rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500">
+                <svg class="w-6 h-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        
+
+      </nav>
+    </div>
+
+  </div>
+</div>
+
+  <div class="container px-4 mx-auto">
+
+
+    <div class="relative px-4 pt-4 pb-20 bg-gray-50 sm:px-6 lg:pt-10 lg:pb-28 lg:px-8">
+      <div class="absolute inset-0">
+        <div class="bg-white h-1/3 sm:h-2/3"></div>
+      </div>
+
+      <div class="relative mx-auto max-w-7xl">
+      
+        <div class="text-center">
+        
+          <h2 class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
+            Calculadora
+          </h2>
+
+        </div>
+
+        <div class="container">
+
+          <form>
+              <div class="row">
+              <div class="col">
+                  <label ><b>Ativo</b></label>
+                  <select class="custom-select" id="ativo">
+                      <option value="1">WDO - mini</option>
+                      <option value="2">DOL - cheio</option>
+                    </select>
+              </div>
+                <div class="col">
+                  <label ><b>Investimento Inicial</b></label>
+                  <input type="number" value="22500" class="form-control" id="inicial" placeholder="">
+                </div>
+                <div class="col">
+                  <label ><b>Pontos</b></label>
+                  <input type="number" value="1.5" class="form-control" id="ponto" placeholder="">
+                </div>
+                <div class="col">
+                  <label ><b>Quantidade</b></label>
+                  <input type="number"  value="10" class="form-control" id="quantidade" placeholder="">
+                </div>
+                <div class="col">
+                  <label ><b>Quebra</b></label>
+                  <input type="number"  value="3" class="form-control" id="quebra" placeholder="">
+                </div>
+              </div>
+          </form>
+          <br/>
+        
+          <button type="button" id="calcular" class="btn btn-primary btn-lg btn-block">Calcular</button>
+
+          <br/>
+
+          <table
+              id="resumo" 
+              class="table">
+          </table> 
+
+
+          <table 
+            class="table"
+            data-show-export="true"
+            id="table"
+          >
+
+          <thead class="thead-dark">
+              <tr>
+                  <th data-field="number">#</th>
+                  <th data-field="contrato">Contrato</th>
+                  <th data-field="ponto">Ponto</th>   
+                  <th data-field="operacao">Operação</th>     
+                  <th data-field="lucro">Lucro</th>     
+                  <th data-field="inicial">Inicial</th>  
+                  <th data-field="final">Final</th>  
+                  <th data-field="risco">Risco</th>
+                  <th data-field="retorno">Retorno</th>  
+                  <th data-field="quebra">Quebra</th>  
+              </tr>
+          </thead>
+          </table>
+        
+        </div>
+      </div>
+
+    </div>
+    <script>
+
+      var $table = $('#table')
+      let qtd = 0
+
+      $("#calcular").click(function() {
+        
+          qtd++;
+
+          let filtro = {
+              "inicial": parseFloat($("#inicial").val()),
+              "ponto": parseFloat($("#ponto").val()),
+              "quantidade": parseFloat($("#quantidade").val()),
+              "ativo": parseFloat($("#ativo").val()),
+              "quebra": parseFloat($("#quebra").val())
+          }
+
+          if(filtro.ativo == 1)  {
+              if(filtro.inicial < 300*filtro.quebra){
+                  alert("Mínimo " + 300*filtro.quebra+",00 R$ ou uma quebra menor para o WDO.")
+                  return
+              }
+          }
+          else 
+              if(filtro.inicial < 7500*filtro.quebra ){
+                  alert("Mínimo "+7500*filtro.quebra+",00 R$ ou uma quebra menor para o DOL.")
+                  return
+              }
+
+
+          console.log(filtro)
+
+          let data = []
+          let investimento = filtro.inicial
+          let trades
+          let contrato
+
+          let valor_contrato = (filtro.ativo == 1) ? 10 : 50;
+
+          for (let i = 0; i < filtro.quantidade; i++) {
+
+            
+              contrato = (filtro.ativo == 1) ? 
+              (filtro.inicial - (filtro.inicial % (300*filtro.quebra)))/(300*filtro.quebra) : 
+              (filtro.inicial - (filtro.inicial % (7500*filtro.quebra)))/((7500*filtro.quebra)*5)
+            
+              console.log("sobra da divisão:")
+              console.log("contrato cheio:")
+              console.log(filtro.inicial - (filtro.inicial % (7500*filtro.quebra)))/((7500*filtro.quebra)*5)
+              console.log("contrato mini:")
+              console.log((filtro.inicial - (filtro.inicial % (300*filtro.quebra)))/(300*filtro.quebra))
+              console.log("ponto:")
+              console.log(filtro.ponto*contrato*10)
+         
+            
+              trades = {
+                  "number": i +1,
+                  "contrato": contrato ,
+                  "ponto": filtro.ponto,
+                  "operacao": "R$ " + formatMoney(contrato*30*valor_contrato),
+                  "lucro": "R$ " +formatMoney(filtro.ponto*contrato*valor_contrato),
+                  "inicial": "R$ " +formatMoney(filtro.inicial),
+                  "final": "R$ " +formatMoney(filtro.inicial + (filtro.ponto*contrato*valor_contrato)),
+                  "final_clean": (filtro.inicial + (filtro.ponto*contrato*valor_contrato)),
+                  "risco": (((contrato*30*valor_contrato) / filtro.inicial*100)).toFixed(2) + "%" ,
+                  "retorno": (((filtro.ponto*contrato*valor_contrato)/filtro.inicial)*100).toFixed(2) + "%",
+                  "quebra": (filtro.inicial/(contrato*30*valor_contrato)).toFixed(2),
+              }
+
+              filtro.inicial = filtro.inicial + (filtro.ponto*contrato*valor_contrato)
+
+              data.push(trades)
+            
+          }
+
+          let data_resumo = {
+              columns: [{
+                  field: 'inicial',
+                  title: 'Investimento'
+              }, {
+                  field: 'final',
+                  title: 'Acumulado'
+              }, {
+                  field: 'lucro',
+                  title: 'Lucro'
+              },{
+                  field: 'porcem',
+                  title: '%'
+              }],
+              data: [{
+                  inicial: "R$ " + formatMoney(investimento),
+                  final: data[data.length-1].final,
+                  lucro: "R$ " + formatMoney((data[data.length-1].final_clean - investimento)),
+                  porcem: ((((data[data.length-1].final_clean - investimento))/ investimento)*100).toFixed(2) + "%" 
+              }]
+          }
+        
+
+          console.log(data)
+
+          if(qtd == 1){
+              $table.bootstrapTable({data: data})
+              $('#resumo').bootstrapTable(data_resumo)
+          }
+          else{
+              $table.bootstrapTable("load", data)
+              $('#resumo').bootstrapTable("load", data_resumo.data)
+          }
+
+      });
+
+      function formatMoney(amount, decimalCount = 2, decimal = ".", thousands = ",") {
+          try {
+              decimalCount = Math.abs(decimalCount);
+              decimalCount = isNaN(decimalCount) ? 2 : decimalCount;
+        
+              const negativeSign = amount < 0 ? "-" : "";
+        
+              let i = parseInt(amount = Math.abs(Number(amount) || 0).toFixed(decimalCount)).toString();
+              let j = (i.length > 3) ? i.length % 3 : 0;
+        
+              return negativeSign + (j ? i.substr(0, j) + thousands : '') + i.substr(j).replace(/(d{3})(?=d)/g, "$1" + thousands) + (decimalCount ? decimal + Math.abs(amount - i).toFixed(decimalCount).slice(2) : "");
+          } 
+          catch (e) {
+              console.log(e)
+          }
+      }
+
+    </script>
+    
+  </div>
+</body>
+</html>
